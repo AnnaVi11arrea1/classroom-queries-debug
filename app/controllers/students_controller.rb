@@ -19,9 +19,9 @@ class StudentsController < ApplicationController
 
     if @student.valid?
       @student.save
-      redirect_to("/students", { :notice => "Student created successfully." })
+      redirect_to("/index", { :notice => "Student created successfully." })
     else
-      redirect_to("/students", { :notice => "Student failed to create successfully." })
+      redirect_to("/index", { :notice => "Student failed to create successfully." })
     end
   end
 
