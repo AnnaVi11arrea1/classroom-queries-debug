@@ -42,10 +42,10 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    @student = Student.where({ :id => the_id }).at(0)
-
-    @student.destroy
+    the_id = params.fetch("the_id")
+    student = Student.where({ :id => the_id })
+    delstudent = student.at(0)
+    delstudent.destroy
 
     redirect_to("/students", { :notice => "Student deleted successfully."} )
   end

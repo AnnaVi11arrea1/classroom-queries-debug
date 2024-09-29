@@ -1,4 +1,4 @@
-<h1>
+ <h1>
   Student #<%= @student.id %> details
 </h1>
 
@@ -9,7 +9,7 @@
 </div>
 
 <div>
-  <a href="/delete_student/<%= @student_id %>">
+  <a href="/delete_student/<%= @student_id %>/destroy">
     Delete student
   </a>
 </div>
@@ -101,12 +101,13 @@
 <hr>
 
 <ul>
-  <% enrollments = Enrollment.where({:student_id => @student.id }) %>
-  <% enrollments.each do |enrollment| %>
-    <% course = Course.where({ :id => enrollment.course_id }).at(0) %>
+  <% @enrollments = Enrollment.where({:student_id => @student.id }) %>
+  <% @enrollments.each do |enrollment| %>
+
+    <% @course = Course.where({ :id => @enrollments_id }).at(0) %>
     <li>
-      <a href="/courses/<%= course.id %>">
-        <%= course.title %>
+      <a href="/courses/<%= @course %>">
+        <%= @course_title %>
       </a>
     </li>
   <% end %>
